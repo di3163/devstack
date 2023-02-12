@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "558643870525",
+    "project_id": "devstack-8043e",
+    "storage_bucket": "devstack-8043e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:558643870525:android:7c4130c085387e2dbaa354",
+        "android_client_info": {
+          "package_name": "com.example.devstack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "558643870525-mbc51ro7dn6vgog3qiclm2egrpu2l13b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDccWjh7h5nCEYJrAt4IF2yYSxzGypEwII"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "558643870525-mbc51ro7dn6vgog3qiclm2egrpu2l13b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "558643870525-kpfufmbmrr770m3a1drq8all5jdv8g40.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.devstack"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
