@@ -27,6 +27,10 @@ class DataRepositoryDb {
       }
     });
   }
+
+  Future<void> putSwitcher(SwitcherEntity switcherEntity) async {
+    await _client.updateData(data: DataModelDb.fromEntity(switcherEntity));
+  }
 }
 
 class DataRepositoryFb {

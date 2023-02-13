@@ -173,17 +173,17 @@ class SwitcherCheck extends StatefulWidget {
 }
 
 class _SwitcherCheckState extends State<SwitcherCheck> {
-  late bool _sw;
+  late bool sw;
 
   @override
   void initState() {
-    _sw = widget.switcherEntity.switch3;
+    sw = widget.switcherEntity.switch3;
     super.initState();
   }
 
   @override
   void didUpdateWidget(covariant SwitcherCheck oldWidget) {
-    _sw = widget.switcherEntity.switch3;
+    sw = widget.switcherEntity.switch3;
     super.didUpdateWidget(oldWidget);
   }
 
@@ -194,7 +194,7 @@ class _SwitcherCheckState extends State<SwitcherCheck> {
       width: 16,
       child: Checkbox(
         activeColor: const Color.fromRGBO(49, 172, 106, 1),
-        value: _sw,
+        value: sw,
         onChanged: (value) {
           context.read<SwitcherBloc>().add(
                 SwitcherEvent.changeSwitch(
@@ -202,7 +202,7 @@ class _SwitcherCheckState extends State<SwitcherCheck> {
                 ),
               );
           setState(() {
-            _sw = value;
+            sw = value;
           });
         },
       ),
@@ -320,17 +320,17 @@ class SwitcherSwitch extends StatefulWidget {
 }
 
 class _SwitcherSwitchState extends State<SwitcherSwitch> {
-  late bool _sw;
+  late bool sw;
 
   @override
   void initState() {
-    _sw = widget.switcherEntity.switch1;
+    sw = widget.switcherEntity.switch1;
     super.initState();
   }
 
   @override
   void didUpdateWidget(covariant SwitcherSwitch oldWidget) {
-    _sw = widget.switcherEntity.switch1;
+    sw = widget.switcherEntity.switch1;
     super.didUpdateWidget(oldWidget);
   }
 
@@ -338,12 +338,11 @@ class _SwitcherSwitchState extends State<SwitcherSwitch> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 24,
-      //width: 24,
       child: FittedBox(
         fit: BoxFit.contain,
         child: CupertinoSwitch(
             activeColor: const Color.fromRGBO(49, 172, 106, 1),
-            value: _sw,
+            value: sw,
             onChanged: (value) {
               context.read<SwitcherBloc>().add(
                     SwitcherEvent.changeSwitch(
@@ -351,7 +350,7 @@ class _SwitcherSwitchState extends State<SwitcherSwitch> {
                     ),
                   );
               setState(() {
-                _sw = value;
+                sw = value;
               });
             }),
       ),

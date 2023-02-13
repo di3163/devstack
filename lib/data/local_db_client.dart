@@ -53,7 +53,7 @@ class LocalDbClient {
   Future<List<DataModelDb>> select(DataModel data) async {
     var queryData = await _db!.rawQuery('''SELECT * 
       FROM $table
-      WHERE $columnId  = "${data.id}"   
+      WHERE $columnId  = '${data.id}'   
       ''');
     return queryData.isNotEmpty
         ? queryData
@@ -67,10 +67,12 @@ class LocalDbClient {
   Future<void> updateData({required DataModelDb data}) async {
     await _db!.rawUpdate('''
         UPDATE $table 
-        SET $columnSwitch1 = ${data.switch1},
+        SET $columnName = '${data.name}',
+          $columnSwitch1 = ${data.switch1},
           $columnSwitch2 = ${data.switch2},
-          $columnSwitch3 = ${data.switch3}   
-        WHERE $columnId = "${data.id}"
+          $columnSwitch3 = ${data.switch3},
+          $columnOrder = ${data.ord}   
+        WHERE $columnId = '${data.id}'
         ''');
   }
 
@@ -83,8 +85,8 @@ class LocalDbClient {
           $columnSwitch3, 
           $columnOrder) 
         VALUES(
-          "${dataModelDb.id}", 
-          "${dataModelDb.name}", 
+          '${dataModelDb.id}', 
+          '${dataModelDb.name}', 
           ${dataModelDb.switch1}, 
           ${dataModelDb.switch2}, 
           ${dataModelDb.switch3},

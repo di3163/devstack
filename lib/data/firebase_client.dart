@@ -6,6 +6,7 @@ import 'package:devstack/data/exeptions.dart';
 typedef RequestBody = Map<String, dynamic>;
 
 class FirebaseClient {
+  //static const kCollectionName = 'test_collection';
   static const kCollectionName = 'data_collection';
 
   final _firestoreInstance = FirebaseFirestore.instance;

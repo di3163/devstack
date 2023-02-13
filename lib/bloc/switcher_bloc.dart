@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:devstack/data/data_repository.dart';
@@ -10,6 +11,8 @@ part 'switcher_bloc.freezed.dart';
 @freezed
 class SwitcherEvent with _$SwitcherEvent {
   const SwitcherEvent._();
+
+  const factory SwitcherEvent.initEvent() = _InitEvent;
 
   const factory SwitcherEvent.updateLocalDb() = _UpdateLocalDblEvent;
 
@@ -41,6 +44,8 @@ class SwitcherBloc extends Bloc<SwitcherEvent, SwitcherState> {
   final DataRepositoryDb _dataRepositoryDb;
   final DataRepositoryFb _dataRepositoryFb;
 
+  bool _switchChangeOnUi = false;
+
   SwitcherBloc({
     required final DataRepositoryDb dataRepositoryDb,
     required final DataRepositoryFb dataRepositoryFb,
@@ -63,16 +68,25 @@ class SwitcherBloc extends Bloc<SwitcherEvent, SwitcherState> {
       await _updateFromFb(event, emit);
     });
 
-    on<_ChangeSwitchEvent>((event, emit) async {
-      await _changeSwitch(event, emit);
-    });
+    on<_ChangeSwitchEvent>(
+      (event, emit) async {
+        await _changeSwitch(event, emit);
+      },
+      transformer: sequential(),
+    );
   }
 
   Future<void> _changeSwitch(
     _ChangeSwitchEvent event,
     Emitter<SwitcherState> emitter,
   ) async {
+    _switchChangeOnUi = true;
     await _dataRepositoryFb.changeData(event.switcherEntity);
+    var result = await _dataRepositoryFb.fetchData();
+    if (result.isNotEmpty) {
+      await _dataRepositoryDb.putData(result);
+    }
+    _switchChangeOnUi = false;
   }
 
   _updateSwitcher(
@@ -89,9 +103,11 @@ class SwitcherBloc extends Bloc<SwitcherEvent, SwitcherState> {
     Emitter<SwitcherState> emitter,
   ) async {
     Timer.periodic(const Duration(seconds: 2), (timer) async {
-      var result = await _dataRepositoryDb.fetchData();
-      if (result.isNotEmpty) {
-        add(SwitcherEvent.updateSwitcher(result));
+      if (!_switchChangeOnUi) {
+        var result = await _dataRepositoryDb.fetchData();
+        if (result.isNotEmpty) {
+          add(SwitcherEvent.updateSwitcher(result));
+        }
       }
     });
   }
@@ -101,9 +117,11 @@ class SwitcherBloc extends Bloc<SwitcherEvent, SwitcherState> {
     Emitter<SwitcherState> emitter,
   ) async {
     Timer.periodic(const Duration(seconds: 10), (timer) async {
-      var result = await _dataRepositoryFb.fetchData();
-      if (result.isNotEmpty) {
-        await _dataRepositoryDb.putData(result);
+      if (!_switchChangeOnUi) {
+        var result = await _dataRepositoryFb.fetchData();
+        if (result.isNotEmpty) {
+          await _dataRepositoryDb.putData(result);
+        }
       }
     });
   }

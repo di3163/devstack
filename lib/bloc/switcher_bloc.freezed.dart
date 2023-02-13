@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SwitcherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initEvent,
     required TResult Function() updateLocalDb,
     required TResult Function(List<SwitcherEntity> switcherList) updateSwitcher,
     required TResult Function() updateFromFb,
@@ -27,6 +28,7 @@ mixin _$SwitcherEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initEvent,
     TResult? Function()? updateLocalDb,
     TResult? Function(List<SwitcherEntity> switcherList)? updateSwitcher,
     TResult? Function()? updateFromFb,
@@ -36,6 +38,7 @@ mixin _$SwitcherEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initEvent,
     TResult Function()? updateLocalDb,
     TResult Function(List<SwitcherEntity> switcherList)? updateSwitcher,
     TResult Function()? updateFromFb,
@@ -46,6 +49,7 @@ mixin _$SwitcherEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitEvent value) initEvent,
     required TResult Function(_UpdateLocalDblEvent value) updateLocalDb,
     required TResult Function(_UpdateSwitcherEvent value) updateSwitcher,
     required TResult Function(_UpdateFromFbEvent value) updateFromFb,
@@ -55,6 +59,7 @@ mixin _$SwitcherEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitEvent value)? initEvent,
     TResult? Function(_UpdateLocalDblEvent value)? updateLocalDb,
     TResult? Function(_UpdateSwitcherEvent value)? updateSwitcher,
     TResult? Function(_UpdateFromFbEvent value)? updateFromFb,
@@ -64,6 +69,7 @@ mixin _$SwitcherEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitEvent value)? initEvent,
     TResult Function(_UpdateLocalDblEvent value)? updateLocalDb,
     TResult Function(_UpdateSwitcherEvent value)? updateSwitcher,
     TResult Function(_UpdateFromFbEvent value)? updateFromFb,
@@ -90,6 +96,133 @@ class _$SwitcherEventCopyWithImpl<$Res, $Val extends SwitcherEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$_InitEventCopyWith<$Res> {
+  factory _$$_InitEventCopyWith(
+          _$_InitEvent value, $Res Function(_$_InitEvent) then) =
+      __$$_InitEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_InitEventCopyWithImpl<$Res>
+    extends _$SwitcherEventCopyWithImpl<$Res, _$_InitEvent>
+    implements _$$_InitEventCopyWith<$Res> {
+  __$$_InitEventCopyWithImpl(
+      _$_InitEvent _value, $Res Function(_$_InitEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_InitEvent extends _InitEvent {
+  const _$_InitEvent() : super._();
+
+  @override
+  String toString() {
+    return 'SwitcherEvent.initEvent()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_InitEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initEvent,
+    required TResult Function() updateLocalDb,
+    required TResult Function(List<SwitcherEntity> switcherList) updateSwitcher,
+    required TResult Function() updateFromFb,
+    required TResult Function() periodicUpdateFb,
+    required TResult Function(SwitcherEntity switcherEntity) changeSwitch,
+  }) {
+    return initEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initEvent,
+    TResult? Function()? updateLocalDb,
+    TResult? Function(List<SwitcherEntity> switcherList)? updateSwitcher,
+    TResult? Function()? updateFromFb,
+    TResult? Function()? periodicUpdateFb,
+    TResult? Function(SwitcherEntity switcherEntity)? changeSwitch,
+  }) {
+    return initEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initEvent,
+    TResult Function()? updateLocalDb,
+    TResult Function(List<SwitcherEntity> switcherList)? updateSwitcher,
+    TResult Function()? updateFromFb,
+    TResult Function()? periodicUpdateFb,
+    TResult Function(SwitcherEntity switcherEntity)? changeSwitch,
+    required TResult orElse(),
+  }) {
+    if (initEvent != null) {
+      return initEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitEvent value) initEvent,
+    required TResult Function(_UpdateLocalDblEvent value) updateLocalDb,
+    required TResult Function(_UpdateSwitcherEvent value) updateSwitcher,
+    required TResult Function(_UpdateFromFbEvent value) updateFromFb,
+    required TResult Function(_PeriodicUpdateFb value) periodicUpdateFb,
+    required TResult Function(_ChangeSwitchEvent value) changeSwitch,
+  }) {
+    return initEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitEvent value)? initEvent,
+    TResult? Function(_UpdateLocalDblEvent value)? updateLocalDb,
+    TResult? Function(_UpdateSwitcherEvent value)? updateSwitcher,
+    TResult? Function(_UpdateFromFbEvent value)? updateFromFb,
+    TResult? Function(_PeriodicUpdateFb value)? periodicUpdateFb,
+    TResult? Function(_ChangeSwitchEvent value)? changeSwitch,
+  }) {
+    return initEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitEvent value)? initEvent,
+    TResult Function(_UpdateLocalDblEvent value)? updateLocalDb,
+    TResult Function(_UpdateSwitcherEvent value)? updateSwitcher,
+    TResult Function(_UpdateFromFbEvent value)? updateFromFb,
+    TResult Function(_PeriodicUpdateFb value)? periodicUpdateFb,
+    TResult Function(_ChangeSwitchEvent value)? changeSwitch,
+    required TResult orElse(),
+  }) {
+    if (initEvent != null) {
+      return initEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InitEvent extends SwitcherEvent {
+  const factory _InitEvent() = _$_InitEvent;
+  const _InitEvent._() : super._();
 }
 
 /// @nodoc
@@ -130,6 +263,7 @@ class _$_UpdateLocalDblEvent extends _UpdateLocalDblEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initEvent,
     required TResult Function() updateLocalDb,
     required TResult Function(List<SwitcherEntity> switcherList) updateSwitcher,
     required TResult Function() updateFromFb,
@@ -142,6 +276,7 @@ class _$_UpdateLocalDblEvent extends _UpdateLocalDblEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initEvent,
     TResult? Function()? updateLocalDb,
     TResult? Function(List<SwitcherEntity> switcherList)? updateSwitcher,
     TResult? Function()? updateFromFb,
@@ -154,6 +289,7 @@ class _$_UpdateLocalDblEvent extends _UpdateLocalDblEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initEvent,
     TResult Function()? updateLocalDb,
     TResult Function(List<SwitcherEntity> switcherList)? updateSwitcher,
     TResult Function()? updateFromFb,
@@ -170,6 +306,7 @@ class _$_UpdateLocalDblEvent extends _UpdateLocalDblEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitEvent value) initEvent,
     required TResult Function(_UpdateLocalDblEvent value) updateLocalDb,
     required TResult Function(_UpdateSwitcherEvent value) updateSwitcher,
     required TResult Function(_UpdateFromFbEvent value) updateFromFb,
@@ -182,6 +319,7 @@ class _$_UpdateLocalDblEvent extends _UpdateLocalDblEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitEvent value)? initEvent,
     TResult? Function(_UpdateLocalDblEvent value)? updateLocalDb,
     TResult? Function(_UpdateSwitcherEvent value)? updateSwitcher,
     TResult? Function(_UpdateFromFbEvent value)? updateFromFb,
@@ -194,6 +332,7 @@ class _$_UpdateLocalDblEvent extends _UpdateLocalDblEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitEvent value)? initEvent,
     TResult Function(_UpdateLocalDblEvent value)? updateLocalDb,
     TResult Function(_UpdateSwitcherEvent value)? updateSwitcher,
     TResult Function(_UpdateFromFbEvent value)? updateFromFb,
@@ -287,6 +426,7 @@ class _$_UpdateSwitcherEvent extends _UpdateSwitcherEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initEvent,
     required TResult Function() updateLocalDb,
     required TResult Function(List<SwitcherEntity> switcherList) updateSwitcher,
     required TResult Function() updateFromFb,
@@ -299,6 +439,7 @@ class _$_UpdateSwitcherEvent extends _UpdateSwitcherEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initEvent,
     TResult? Function()? updateLocalDb,
     TResult? Function(List<SwitcherEntity> switcherList)? updateSwitcher,
     TResult? Function()? updateFromFb,
@@ -311,6 +452,7 @@ class _$_UpdateSwitcherEvent extends _UpdateSwitcherEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initEvent,
     TResult Function()? updateLocalDb,
     TResult Function(List<SwitcherEntity> switcherList)? updateSwitcher,
     TResult Function()? updateFromFb,
@@ -327,6 +469,7 @@ class _$_UpdateSwitcherEvent extends _UpdateSwitcherEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitEvent value) initEvent,
     required TResult Function(_UpdateLocalDblEvent value) updateLocalDb,
     required TResult Function(_UpdateSwitcherEvent value) updateSwitcher,
     required TResult Function(_UpdateFromFbEvent value) updateFromFb,
@@ -339,6 +482,7 @@ class _$_UpdateSwitcherEvent extends _UpdateSwitcherEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitEvent value)? initEvent,
     TResult? Function(_UpdateLocalDblEvent value)? updateLocalDb,
     TResult? Function(_UpdateSwitcherEvent value)? updateSwitcher,
     TResult? Function(_UpdateFromFbEvent value)? updateFromFb,
@@ -351,6 +495,7 @@ class _$_UpdateSwitcherEvent extends _UpdateSwitcherEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitEvent value)? initEvent,
     TResult Function(_UpdateLocalDblEvent value)? updateLocalDb,
     TResult Function(_UpdateSwitcherEvent value)? updateSwitcher,
     TResult Function(_UpdateFromFbEvent value)? updateFromFb,
@@ -414,6 +559,7 @@ class _$_UpdateFromFbEvent extends _UpdateFromFbEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initEvent,
     required TResult Function() updateLocalDb,
     required TResult Function(List<SwitcherEntity> switcherList) updateSwitcher,
     required TResult Function() updateFromFb,
@@ -426,6 +572,7 @@ class _$_UpdateFromFbEvent extends _UpdateFromFbEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initEvent,
     TResult? Function()? updateLocalDb,
     TResult? Function(List<SwitcherEntity> switcherList)? updateSwitcher,
     TResult? Function()? updateFromFb,
@@ -438,6 +585,7 @@ class _$_UpdateFromFbEvent extends _UpdateFromFbEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initEvent,
     TResult Function()? updateLocalDb,
     TResult Function(List<SwitcherEntity> switcherList)? updateSwitcher,
     TResult Function()? updateFromFb,
@@ -454,6 +602,7 @@ class _$_UpdateFromFbEvent extends _UpdateFromFbEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitEvent value) initEvent,
     required TResult Function(_UpdateLocalDblEvent value) updateLocalDb,
     required TResult Function(_UpdateSwitcherEvent value) updateSwitcher,
     required TResult Function(_UpdateFromFbEvent value) updateFromFb,
@@ -466,6 +615,7 @@ class _$_UpdateFromFbEvent extends _UpdateFromFbEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitEvent value)? initEvent,
     TResult? Function(_UpdateLocalDblEvent value)? updateLocalDb,
     TResult? Function(_UpdateSwitcherEvent value)? updateSwitcher,
     TResult? Function(_UpdateFromFbEvent value)? updateFromFb,
@@ -478,6 +628,7 @@ class _$_UpdateFromFbEvent extends _UpdateFromFbEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitEvent value)? initEvent,
     TResult Function(_UpdateLocalDblEvent value)? updateLocalDb,
     TResult Function(_UpdateSwitcherEvent value)? updateSwitcher,
     TResult Function(_UpdateFromFbEvent value)? updateFromFb,
@@ -535,6 +686,7 @@ class _$_PeriodicUpdateFb extends _PeriodicUpdateFb {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initEvent,
     required TResult Function() updateLocalDb,
     required TResult Function(List<SwitcherEntity> switcherList) updateSwitcher,
     required TResult Function() updateFromFb,
@@ -547,6 +699,7 @@ class _$_PeriodicUpdateFb extends _PeriodicUpdateFb {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initEvent,
     TResult? Function()? updateLocalDb,
     TResult? Function(List<SwitcherEntity> switcherList)? updateSwitcher,
     TResult? Function()? updateFromFb,
@@ -559,6 +712,7 @@ class _$_PeriodicUpdateFb extends _PeriodicUpdateFb {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initEvent,
     TResult Function()? updateLocalDb,
     TResult Function(List<SwitcherEntity> switcherList)? updateSwitcher,
     TResult Function()? updateFromFb,
@@ -575,6 +729,7 @@ class _$_PeriodicUpdateFb extends _PeriodicUpdateFb {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitEvent value) initEvent,
     required TResult Function(_UpdateLocalDblEvent value) updateLocalDb,
     required TResult Function(_UpdateSwitcherEvent value) updateSwitcher,
     required TResult Function(_UpdateFromFbEvent value) updateFromFb,
@@ -587,6 +742,7 @@ class _$_PeriodicUpdateFb extends _PeriodicUpdateFb {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitEvent value)? initEvent,
     TResult? Function(_UpdateLocalDblEvent value)? updateLocalDb,
     TResult? Function(_UpdateSwitcherEvent value)? updateSwitcher,
     TResult? Function(_UpdateFromFbEvent value)? updateFromFb,
@@ -599,6 +755,7 @@ class _$_PeriodicUpdateFb extends _PeriodicUpdateFb {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitEvent value)? initEvent,
     TResult Function(_UpdateLocalDblEvent value)? updateLocalDb,
     TResult Function(_UpdateSwitcherEvent value)? updateSwitcher,
     TResult Function(_UpdateFromFbEvent value)? updateFromFb,
@@ -694,6 +851,7 @@ class _$_ChangeSwitchEvent extends _ChangeSwitchEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initEvent,
     required TResult Function() updateLocalDb,
     required TResult Function(List<SwitcherEntity> switcherList) updateSwitcher,
     required TResult Function() updateFromFb,
@@ -706,6 +864,7 @@ class _$_ChangeSwitchEvent extends _ChangeSwitchEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initEvent,
     TResult? Function()? updateLocalDb,
     TResult? Function(List<SwitcherEntity> switcherList)? updateSwitcher,
     TResult? Function()? updateFromFb,
@@ -718,6 +877,7 @@ class _$_ChangeSwitchEvent extends _ChangeSwitchEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initEvent,
     TResult Function()? updateLocalDb,
     TResult Function(List<SwitcherEntity> switcherList)? updateSwitcher,
     TResult Function()? updateFromFb,
@@ -734,6 +894,7 @@ class _$_ChangeSwitchEvent extends _ChangeSwitchEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitEvent value) initEvent,
     required TResult Function(_UpdateLocalDblEvent value) updateLocalDb,
     required TResult Function(_UpdateSwitcherEvent value) updateSwitcher,
     required TResult Function(_UpdateFromFbEvent value) updateFromFb,
@@ -746,6 +907,7 @@ class _$_ChangeSwitchEvent extends _ChangeSwitchEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitEvent value)? initEvent,
     TResult? Function(_UpdateLocalDblEvent value)? updateLocalDb,
     TResult? Function(_UpdateSwitcherEvent value)? updateSwitcher,
     TResult? Function(_UpdateFromFbEvent value)? updateFromFb,
@@ -758,6 +920,7 @@ class _$_ChangeSwitchEvent extends _ChangeSwitchEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitEvent value)? initEvent,
     TResult Function(_UpdateLocalDblEvent value)? updateLocalDb,
     TResult Function(_UpdateSwitcherEvent value)? updateSwitcher,
     TResult Function(_UpdateFromFbEvent value)? updateFromFb,

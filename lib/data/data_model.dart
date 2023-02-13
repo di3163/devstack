@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:devstack/entities/switcher_entity.dart';
 
@@ -50,6 +52,15 @@ class DataModelDb with _$DataModelDb {
         switch2: dataModel.switch2 ? 1 : 0,
         switch3: dataModel.switch3 ? 1 : 0,
         ord: dataModel.order,
+      );
+
+  factory DataModelDb.fromEntity(SwitcherEntity entity) => DataModelDb(
+        id: entity.id,
+        name: entity.name,
+        switch1: entity.switch1 ? 1 : 0,
+        switch2: entity.switch2 ? 1 : 0,
+        switch3: entity.switch3 ? 1 : 0,
+        ord: entity.order,
       );
 
   factory DataModelDb.fromJson(Map<String, dynamic> json) =>
